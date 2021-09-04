@@ -12,6 +12,7 @@ resource "azurerm_key_vault" "bastion_kv" {
   network_acls {
       bypass         = "AzureServices"
       default_action = "Deny"
+      ip_rules       = ["212.159.71.60"]
   }
 }
 
