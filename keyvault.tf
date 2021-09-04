@@ -10,6 +10,27 @@ resource "azurerm_key_vault" "bastion_kv" {
   enable_rbac_authorization   = true
 }
 
+resource "azurerm_private_endpoint" "keyvault" {
+  name                = "kv-endpoint"
+  location            = azurerm_resource_group.bastion.location
+  resource_group_name = azurerm_resource_group.bastion.name
+  subnet_id           = azurerm_subnet.pe_sn.id
+
+  private_service_connection {
+    name                           = "kv-privateserviceconnection"
+    private_connection_resource_id = azurerm_key_vault.bastion_kv.id
+    is_manual_connection           = false
+    subresources_names             = ["vault"]
+  }
+
+  private_dns_zone_group {
+    name = "kvgroup"
+    private_dns_zone_ids = [
+        azurerm_private_dns_zone.kv.id
+    ]
+  }
+}
+
 resource "azurerm_role_assignment" "sp_kv_role_assignment" {
   scope                = azurerm_key_vault.bastion_kv.id
   role_definition_name = "Key Vault Secrets Officer"
