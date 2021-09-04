@@ -1,0 +1,17 @@
+variable location {
+  type = string
+  description = "Virtual network location"
+}
+
+variable vnet_address_space {
+  type = list
+}
+
+variable bastion_subnet_cidr {
+    type = string
+}
+
+variable host_subnet_cidr {
+    type = string
+}
+
