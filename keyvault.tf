@@ -20,7 +20,7 @@ resource "azurerm_private_endpoint" "keyvault" {
     name                           = "kv-privateserviceconnection"
     private_connection_resource_id = azurerm_key_vault.bastion_kv.id
     is_manual_connection           = false
-    subresources_names             = ["vault"]
+    subresource_names              = ["vault"]
   }
 
   private_dns_zone_group {
