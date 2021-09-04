@@ -15,3 +15,7 @@ variable host_subnet_cidr {
     type = string
 }
 
+variable pe_subnet_cidr {
+    type = string
+}
+
