@@ -9,11 +9,11 @@ resource "azurerm_key_vault" "bastion_kv" {
   sku_name                    = "standard"
   enable_rbac_authorization   = true
 
-  network_acls {
-      bypass         = "AzureServices"
-      default_action = "Deny"
-      ip_rules       = ["212.159.71.60"]
-  }
+#   network_acls {
+#       bypass         = "AzureServices"
+#       default_action = "Deny"
+#       ip_rules       = [""]
+#   }
 }
 
 resource "azurerm_private_endpoint" "keyvault" {
