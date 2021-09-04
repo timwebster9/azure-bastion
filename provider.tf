@@ -18,3 +18,5 @@ provider "azurerm" {
   //client_id = ""
   //client_secret = ""
 }
+
+provider "tls" {}
