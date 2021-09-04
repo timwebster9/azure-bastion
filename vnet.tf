@@ -9,7 +9,7 @@ resource "azurerm_virtual_network" "bastion_vnet" {
 
 # SUBNETS
 resource "azurerm_subnet" "bastion_sn" {
-  name                 = "bastion-sn"
+  name                 = "AzureBastionSubnet"
   resource_group_name  = azurerm_resource_group.bastion.name
   virtual_network_name = azurerm_virtual_network.bastion_vnet.name
   address_prefixes     = [var.bastion_subnet_cidr]
