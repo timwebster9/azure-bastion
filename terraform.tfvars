@@ -1,7 +1,7 @@
 ############
 # General 
 ############
-location = "uksouth"
+location = "ukwest"
 
 ############
 # Network 

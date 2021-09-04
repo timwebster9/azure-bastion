@@ -11,8 +11,8 @@ terraform {
   }
   backend "azurerm" {
     resource_group_name  = "mgmt-rg"
-    storage_account_name = "tfstatetimw"
+    storage_account_name = "mgmtstorage3445354"
     container_name       = "tfstate"
-    key                  = "avd.tfstate"
+    key                  = "bastion.tfstate"
   }
 }
