@@ -18,7 +18,7 @@ resource "azurerm_subnet" "bastion_sn" {
 resource "azurerm_subnet" "host_sn" {
   name                 = "host-sn"
   resource_group_name  = azurerm_resource_group.bastion.name
-  virtual_network_name = azurerm_virtual_network.bastion.name
+  virtual_network_name = azurerm_virtual_network.bastion_vnet.name
   address_prefixes     = [var.host_subnet_cidr]
 }
 
