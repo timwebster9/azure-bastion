@@ -8,6 +8,11 @@ resource "azurerm_key_vault" "bastion_kv" {
   purge_protection_enabled    = false
   sku_name                    = "standard"
   enable_rbac_authorization   = true
+
+  network_acls = {
+      bypass         = "AzureServices"
+      default_action = "Deny"
+  }
 }
 
 resource "azurerm_private_endpoint" "keyvault" {
