@@ -27,6 +27,7 @@ resource "azurerm_subnet" "pe_sn" {
   resource_group_name  = azurerm_resource_group.bastion.name
   virtual_network_name = azurerm_virtual_network.bastion_vnet.name
   address_prefixes     = [var.pe_subnet_cidr]
+  enforce_private_link_endpoint_network_policies = true
 }
 
 
