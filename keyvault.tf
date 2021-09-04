@@ -9,7 +9,7 @@ resource "azurerm_key_vault" "bastion_kv" {
   sku_name                    = "standard"
   enable_rbac_authorization   = true
 
-  network_acls = {
+  network_acls {
       bypass         = "AzureServices"
       default_action = "Deny"
   }
