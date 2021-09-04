@@ -27,7 +27,7 @@ resource "azurerm_linux_virtual_machine" "example" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = tls_private_key.ssh.public_key_openssh
+    public_key = file("~/.ssh/id_rsa.pub")
   }
 
   os_disk {
@@ -42,3 +42,9 @@ resource "azurerm_linux_virtual_machine" "example" {
     version   = "latest"
   }
 }
+
+# 20.04
+# "publisher": "canonical",
+# "offer": "0001-com-ubuntu-server-focal",
+# "sku": "20_04-lts",
+# "version": "latest"
