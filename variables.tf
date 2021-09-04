@@ -4,7 +4,7 @@ variable location {
 }
 
 variable vnet_address_space {
-  type = list
+  type = string
 }
 
 variable bastion_subnet_cidr {
