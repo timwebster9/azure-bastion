@@ -45,6 +45,7 @@ resource "azurerm_role_assignment" "sp_kv_role_assignment" {
   principal_id         = data.azurerm_client_config.current.object_id
 }
 
+/*
 resource "azurerm_key_vault_secret" "ssh_private_key" {
   name         = "linux-vm-ssh-key"
   value        = tls_private_key.ssh.private_key_pem
@@ -53,4 +54,4 @@ resource "azurerm_key_vault_secret" "ssh_private_key" {
   depends_on = [
       azurerm_role_assignment.sp_kv_role_assignment
   ]
-}
+}*/
