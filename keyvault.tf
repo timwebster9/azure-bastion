@@ -16,6 +16,7 @@ resource "azurerm_key_vault" "bastion_kv" {
 #   }
 }
 
+/*
 resource "azurerm_private_endpoint" "keyvault" {
   name                = "kv-endpoint"
   location            = azurerm_resource_group.bastion.location
@@ -36,6 +37,7 @@ resource "azurerm_private_endpoint" "keyvault" {
     ]
   }
 }
+*/
 
 resource "azurerm_role_assignment" "sp_kv_role_assignment" {
   scope                = azurerm_key_vault.bastion_kv.id
