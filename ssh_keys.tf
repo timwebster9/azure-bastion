@@ -16,4 +16,8 @@ resource "null_resource" "ssh_keys" {
 
 data "local_file" "ssh_public_key" {
     filename = "./id_rsa.pub"
+
+    depends_on = [
+      null_resource.ssh_keys
+    ]
 }
