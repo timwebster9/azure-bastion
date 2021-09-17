@@ -4,7 +4,6 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_vmss" {
   location            = azurerm_resource_group.bastion.location
   sku                 = "Standard_B2s"
   instances           = 1
-  disable_password_authentication = false
   admin_username      = "azureuser"
 
   admin_ssh_key {
