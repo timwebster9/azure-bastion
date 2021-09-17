@@ -12,10 +12,6 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_vmss" {
     public_key = tls_private_key.ssh.public_key_openssh
   }
 
-  depends_on = [
-      azurerm_management_group_policy_assignment.allow_sig_only
-  ]
-
   network_interface {
     name    = "linux-vmss-nic"
     primary = true
