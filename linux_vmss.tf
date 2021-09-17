@@ -8,7 +8,8 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_vmss" {
 
   admin_ssh_key {
     username   = "azureuser"
-    public_key = tls_private_key.ssh.public_key_openssh
+    #public_key = tls_private_key.ssh.public_key_openssh
+    public_key = data.local_file.ssh_public_key.content
   }
 
   network_interface {

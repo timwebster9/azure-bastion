@@ -10,11 +10,6 @@ resource "azurerm_network_interface" "host_vm" {
   }
 }
 
-resource "tls_private_key" "ssh" {
-  algorithm = "RSA"
-  rsa_bits  = "4096"
-}
-
 resource "azurerm_linux_virtual_machine" "example" {
   name                = "linux-host-vm"
   resource_group_name = azurerm_resource_group.bastion.name
@@ -27,7 +22,8 @@ resource "azurerm_linux_virtual_machine" "example" {
 
   admin_ssh_key {
     username   = "azureuser"
-    public_key = tls_private_key.ssh.public_key_openssh
+    #public_key = tls_private_key.ssh.public_key_openssh
+    public_key = data.local_file.ssh_public_key.content
   }
 
   os_disk {
