@@ -2,7 +2,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_vmss" {
   name                = "linux-vm"
   resource_group_name = azurerm_resource_group.bastion.name
   location            = azurerm_resource_group.bastion.location
-  sku                 = var.vm_size
+  sku                 = "Standard_B2s"
   instances           = 1
   disable_password_authentication = false
   admin_username      = "azureuser"
@@ -32,14 +32,12 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_vmss" {
     storage_account_type = "Standard_LRS"
   }
 
-  # This should be allowed
-  source_image_id = var.allowed_source_image_id
+  #source_image_id = var.allowed_source_image_id
 
-  # This should be disallowed because it's not using an allowed image gallery source image
-  # source_image_reference {
-  #   publisher = var.source_image_publisher
-  #   offer     = var.source_image_offer
-  #   sku       = var.source_image_sku
-  #   version   = var.source_image_version
-  # }
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "18.04-LTS"
+    version   = "latest"
+  }
 }
