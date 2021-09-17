@@ -6,6 +6,10 @@ resource "tls_private_key" "ssh" {
 */
 
 resource "null_resource" "ssh_keys" {
+    triggers = {
+        always_run = "${timestamp()}"
+    }
+    
     provisioner "local-exec" {
         command = <<EOT
           ssh-keygen -m PEM -t rsa -b 4096 -P "" -f ./id_rsa
